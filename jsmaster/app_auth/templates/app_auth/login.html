@@ -1,0 +1,31 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+  <head>
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://bootswatch.com/5/morph/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <div class="container form-layout p-5 bg-white">
+      <h1 class="text-center">Login</h1>
+      {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+          <p class="alert alert-success text-white float-center text-center">{{ message }}</p>
+        {% endif %}
+      {% endfor%}
+      <form autocomplete="off" method="POST">
+        {% csrf_token %}
+        {{ LoginForm|crispy }}
+        <br />
+        <input class="btn btn-block btn-secondary btn-md w-100 p-4" type="submit" value="Login" />
+      </form>
+    </div>
+  </html>

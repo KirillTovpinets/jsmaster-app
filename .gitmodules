@@ -1,0 +1,3 @@
+[submodule "jsmaster/frontend"]
+	path = jsmaster/frontend
+	url = https://github.com/KirillTovpinets/jsmaster.git

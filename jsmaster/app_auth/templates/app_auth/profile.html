@@ -1,0 +1,26 @@
+{% extends 'journal/navbar.html' %} {% load crispy_forms_tags %} 
+{% block content %}
+
+<div class="container bg-white shadow-md p-5 form-layout">
+  <h1 class="text-center">Profile</h1>
+  <form method="POST">
+    {% csrf_token %} {{ UserUpdateForm|crispy }}
+    <br />
+    <input
+      class="btn btn-block btn-secondary btn-md w-100 p-4"
+      type="submit"
+      value="Update Profile"
+    />
+  </form>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %} {{ ProfileForm|crispy }}
+    <br />
+    <input
+      class="btn btn-block btn-secondary btn-md w-100 p-4"
+      type="submit"
+      value="Upload Profile"
+    />
+  </form>
+</div>
+
+{% endblock %}
